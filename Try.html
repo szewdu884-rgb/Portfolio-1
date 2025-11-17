@@ -1,1 +1,151 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soreti Muluneh - Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #0a0a0a;
+      color: #ffffff;
+    }header {
+  background: linear-gradient(135deg, #3d0066, #000000);
+  padding: 60px 20px;
+  text-align: center;
+}
 
+header h1 {
+  font-size: 48px;
+  margin: 0;
+  color: #d9a3ff;
+}
+
+header p {
+  font-size: 20px;
+  color: #e5ccff;
+}
+
+section {
+  padding: 50px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.services, .projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #3d0066;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: #a64dff;
+}
+
+h2 {
+  color: #d9a3ff;
+  margin-bottom: 10px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #0d0d0d;
+  color: #b580ff;
+  margin-top: 50px;
+}
+
+a {
+  color: #d9a3ff;
+  text-decoration: none;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  0% { transform: translateY(-40px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@media (max-width: 768px) { header h1 { font-size: 32px; } header p { font-size: 16px; } nav { flex-wrap: wrap; gap: 15px; } .services, .projects { grid-template-columns: 1fr; } img { width: 120px !important; height:120px !important; } }
+
+</style>
+  <style>
+    nav {
+      display:flex;justify-content:center;gap:30px;padding:20px;background:#0d0d0d;position:sticky;top:0;z-index:10;
+      animation:fadeIn 1.5s ease-in-out;
+    }
+    nav a {color:#d9a3ff;text-decoration:none;font-weight:bold;transition:0.3s;}
+    nav a:hover {color:#a64dff;transform:scale(1.1);} header {
+  background:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+  padding:120px 20px;text-align:center;
+  backdrop-filter:blur(5px);
+}
+
+.card {
+  background:rgba(26,26,26,0.6);
+  box-shadow:0 0 15px #3d0066;
+  transition:0.5s;
+  backdrop-filter:blur(6px);
+}
+.card:hover {
+  transform:translateY(-10px) scale(1.03);
+  box-shadow:0 0 25px #a64dff;
+}
+
+  </style>
+</head>
+<body style="scroll-behavior:smooth;">
+  <nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <header>
+    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=400&q=80" alt="Soreti Muluneh" style="width:150px;height:150px;border-radius:50%;border:3px solid #a64dff;animation: fadeIn 2s ease-in-out;"/>
+    <h1 style="animation: slideDown 1.5s ease-out;">Soreti Muluneh</h1>
+    <p style="animation: fadeIn 2.5s ease-in-out;">Web Developer • Creative Designer • Project Collaborator</p>
+  </header>  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      Hi! I'm <strong>Soreti Muluneh</strong>. I'm a student who enjoys learning web development and creating simple but meaningful designs.
+      I love working with people, sharing ideas, and building things together. I believe websites should feel clean, friendly,
+      and easy for anyone to use — and that's exactly what I try to create.
+    </p>
+  </section>  <section id="services">
+    <h2>Services</h2>
+    <div class="services">
+      <div class="card">
+        <h3>Online Market Website</h3>
+        <p>Worked with a group to build a simple and clean online market platform where users can browse items easily.</p>
+      </div><div class="card">
+    <h3>School Project Collaboration</h3>
+    <p>Joined different teamwork projects to create websites for assignments, presentations, and class activities.</p>
+  </div>
+
+  <div class="card">
+    <h3>Community / NGO Website</h3>
+    <p>Helped create small websites for volunteer groups and community-based NGOs to share their mission online.</p>
+  </div>
+</div>
+
+  </section>  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>You can reach me anytime via email:</p>
+    <p><a href="mailto:Soretimuluneh@gmail.com">Soretimuluneh@gmail.com</a></p>
+  </section>  <footer>
+    &copy; 2025 Soreti Muluneh | All Rights Reserved
+  </footer>
+</body>
+</html>
