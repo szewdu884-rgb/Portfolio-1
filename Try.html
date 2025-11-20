@@ -1,159 +1,399 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Soreti Muluneh - Portfolio</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #0a0a0a;
-      color: #ffffff;
-    }header {
-  background: linear-gradient(135deg, #3d0066, #000000);
-  padding: 60px 20px;
-  text-align: center;
-}
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Rich Beyond Children — Empower • Educate • Uplift</title>
+<meta name="description" content="Rich Beyond Children - NGO sponsoring students, supporting parents, and funding mother-led startups." />
+<!-- Styles (paste as-is) -->
+<style>
+  :root{
+    --brand-blue:#0ea5e9; /* main blue */
+    --brand-blue-2:#0b78b9;
+    --muted:#6b7280;
+    --glass: rgba(255,255,255,0.85);
+    --card-shadow: 0 10px 30px rgba(2,6,23,0.08);
+    --radius: 14px;
+    --maxw: 1180px;
+    --accent: linear-gradient(135deg,var(--brand-blue),#6366f1 60%);
+    --bg-gradient: linear-gradient(180deg,#ffffff,#f1f8ff);
+    color-scheme: light;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  }
 
-header h1 {
-  font-size: 48px;
-  margin: 0;
-  color: #d9a3ff;
-}
+  html,body{height:100%}
+  body{
+    margin:0;background:var(--bg-gradient);-webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;color:#0f172a;
+    line-height:1.5;
+  }
 
-header p {
-  font-size: 20px;
-  color: #e5ccff;
-}
+  /* page container */
+  .container{max-width:var(--maxw);margin:0 auto;padding:28px 20px;}
 
-section {
-  padding: 50px 20px;
-  max-width: 900px;
-  margin: auto;
-}
+  /* NAVBAR */
+  header.nav{
+    position:sticky;top:0;z-index:60;backdrop-filter: blur(6px);
+    background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.6));
+    border-bottom:1px solid rgba(15,23,42,0.04);
+    box-shadow: 0 6px 18px rgba(2,6,23,0.02);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:var(--maxw);margin:0 auto;padding:10px 20px;gap:16px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .logo{
+    width:48px;height:48px;border-radius:12px;display:grid;place-items:center;color:white;
+    background:var(--accent);box-shadow:0 6px 20px rgba(14,165,233,0.18);font-weight:700;
+  }
+  .brand h1{font-size:16px;margin:0}
+  nav.links{display:flex;gap:8px;align-items:center}
+  nav.links a{padding:8px 12px;border-radius:10px;text-decoration:none;color:inherit;font-weight:600;font-size:14px}
+  nav.links a.active{background:white;box-shadow:var(--card-shadow)}
+  .cta{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:12px;background:var(--brand-blue);color:white;font-weight:700;cursor:pointer;border:none}
+  .menu-toggle{display:none}
 
-.services, .projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
+  /* HERO */
+  .hero{display:grid;grid-template-columns:1fr 520px;gap:28px;align-items:center;padding:46px 0}
+  .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.96), rgba(250,250,255,0.9));border-radius:20px;padding:28px;box-shadow:var(--card-shadow);position:relative;overflow:visible}
+  .eyebrow{display:inline-block;background:rgba(14,165,233,0.1);color:var(--brand-blue);padding:6px 10px;border-radius:999px;font-weight:700;font-size:13px}
+  h2.hero-title{font-size:34px;margin:12px 0 8px;line-height:1.03}
+  p.lead{color:var(--muted);margin:8px 0 18px}
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:12px;border:none;cursor:pointer;font-weight:700}
+  .btn-primary{background:var(--brand-blue);color:white;box-shadow: 0 8px 30px rgba(14,165,233,0.18)}
+  .btn-ghost{background:transparent;border:1px solid rgba(15,23,42,0.06);color:var(--brand-blue)}
+  .stats{display:flex;gap:12px;margin-top:18px}
+  .stat{background:linear-gradient(180deg,#fff, #fbfdff);padding:12px;border-radius:12px;min-width:120px;text-align:center}
+  .stat b{display:block;font-size:20px}
 
-.card {
-  background: #1a1a1a;
-  padding: 20px;
-  border-radius: 10px;
-  border: 1px solid #3d0066;
-  transition: 0.3s;
-}
+  /* RIGHT HERO IMAGE */
+  .hero-visual{position:relative;border-radius:20px;overflow:hidden;min-height:420px;box-shadow:var(--card-shadow)}
+  .hero-visual img{width:100%;height:100%;object-fit:cover;display:block}
 
-.card:hover {
-  transform: translateY(-5px);
-  border-color: #a64dff;
-}
+  /* SECTION STYLES */
+  section.section{padding:48px 0}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .card{background:white;border-radius:14px;padding:18px;box-shadow:var(--card-shadow);transition:transform .28s, box-shadow .28s;overflow:hidden}
+  .card:hover{transform:translateY(-6px);box-shadow:0 18px 45px rgba(2,6,23,0.09)}
+  .icon-wrap{width:56px;height:56px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg, rgba(14,165,233,0.12), rgba(99,102,241,0.08));font-weight:700}
 
-h2 {
-  color: #d9a3ff;
-  margin-bottom: 10px;
-}
+  /* CAROUSEL */
+  .carousel{position:relative;border-radius:16px;overflow:hidden}
+  .slides{display:flex;transition:transform .6s cubic-bezier(.2,.9,.25,1);will-change:transform}
+  .slide{min-width:100%;padding:28px;display:flex;gap:20px;align-items:center}
+  .slide img{width:220px;height:140px;object-fit:cover;border-radius:10px;flex-shrink:0}
+  .carousel-controls{position:absolute;bottom:14px;right:14px;display:flex;gap:8px}
 
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #0d0d0d;
-  color: #b580ff;
-  margin-top: 50px;
-}
+  /* PROGRESS & COUNTERS */
+  .progress{height:12px;background:#eef2ff;border-radius:999px;overflow:hidden}
+  .progress > i{display:block;height:100%;background:var(--brand-blue);width:0;transition:width .9s ease}
 
-a {
-  color: #d9a3ff;
-  text-decoration: none;
-}
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
+  .counters{display:flex;gap:18px}
+  .counter{background:linear-gradient(180deg,#fff,#fbfdff);padding:18px;border-radius:12px;flex:1;text-align:center}
+  .counter b{font-size:24px;display:block}
 
-@keyframes slideDown {
-  0% { transform: translateY(-40px); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
-}
+  /* FAQ */
+  .faq .item{border-radius:12px;padding:14px;background:white;box-shadow:var(--card-shadow);margin-bottom:10px}
+  .faq .q{display:flex;justify-content:space-between;gap:12px;cursor:pointer}
+  .faq .a{max-height:0;overflow:hidden;transition:max-height .35s ease;padding-top:0}
 
-@media (max-width: 768px) { header h1 { font-size: 32px; } header p { font-size: 16px; } nav { flex-wrap: wrap; gap: 15px; } .services, .projects { grid-template-columns: 1fr; } img { width: 120px !important; height:120px !important; } }
+  /* CONTACT */
+  .contact-grid{display:grid;grid-template-columns:1fr 380px;gap:20px}
+  form .row{display:flex;gap:10px}
+  input,textarea,select{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(15,23,42,0.06);outline:none}
+  input:focus,textarea:focus{box-shadow:0 6px 20px rgba(14,165,233,0.10);border-color:var(--brand-blue-2)}
 
-.purple-black { background: linear-gradient(90deg, #3d0066 50%, #000000 50%); padding: 60px 20px; color: white; }
+  /* FOOTER */
+  footer{margin-top:36px;padding:28px;border-radius:16px;background:linear-gradient(180deg,#0ea5e966,#6366f144);color:white}
 
+  /* RESPONSIVE */
+  @media (max-width:980px){
+    .hero{grid-template-columns:1fr;gap:20px}
+    .hero-visual{min-height:320px}
+    .grid-3{grid-template-columns:1fr 1fr}
+    .contact-grid{grid-template-columns:1fr}
+    nav.links{display:none}
+    .menu-toggle{display:inline-flex}
+  }
+  @media (max-width:600px){
+    .grid-3{grid-template-columns:1fr}
+  }
+
+  /* subtle entrance animations using CSS variables toggled by JS */
+  .reveal {opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease}
+  .reveal.show{opacity:1;transform:none}
+
+  /* micro-interactions */
+  .pill {display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(14,165,233,0.1);color:var(--brand-blue);font-weight:700}
+  /* small helper */
+  .muted{color:var(--muted)}
 </style>
-  <style>
-    nav {
-      display:flex;justify-content:center;gap:30px;padding:20px;background:#0d0d0d;position:sticky;top:0;z-index:10;
-      animation:fadeIn 1.5s ease-in-out;
-    }
-    nav a {color:#d9a3ff;text-decoration:none;font-weight:bold;transition:0.3s;}
-    nav a:hover {color:#a64dff;transform:scale(1.1);} header {
-  background: linear-gradient(135deg, #3d0066, #000000);
-  padding:120px 20px;text-align:center;
-  backdrop-filter:blur(5px);
-}
-
-.card {
-  background:rgba(26,26,26,0.6);
-  box-shadow:0 0 15px #3d0066;
-  transition:0.5s;
-  backdrop-filter:blur(6px);
-}
-.card:hover {
-  transform:translateY(-10px) scale(1.03);
-  box-shadow:0 0 25px #a64dff;
-}
-
-  </style>
 </head>
-<body style="scroll-behavior:smooth;">
-  <nav>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-  </nav>
-  <header>
-    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=400&q=80" alt="Soreti Muluneh" style="width:150px;height:150px;border-radius:50%;border:3px solid #a64dff;animation: fadeIn 2s ease-in-out;"/>
-    <h1 style="animation: slideDown 1.5s ease-out;">Soreti Muluneh</h1>
-    <p style="animation: fadeIn 2.5s ease-in-out;">Web Developer • Creative Designer • Project Collaborator</p>
-  </header>  <section id="about">
-    <h2>About Me</h2>
-    <p>
-      Hi! I'm <strong>Soreti Muluneh</strong>. I'm a student who enjoys learning web development and creating simple but meaningful designs.
-      I love working with people, sharing ideas, and building things together. I believe websites should feel clean, friendly,
-      and easy for anyone to use — and that's exactly what I try to create.
-    </p>
-  </section>  <section id="services">
-    <h2>Services</h2>
-    <div class="services">
-      <div class="card">
-        <h3>Online Market Website</h3>
-        <p>Worked with a group to build a simple and clean online market platform where users can browse items easily.</p>
-      </div><div class="card">
-    <h3>School Project Collaboration</h3>
-    <p>Joined different teamwork projects to create websites for assignments, presentations, and class activities.</p>
+<body>
+<header class="nav" role="banner" aria-label="Main navigation">
+  <div class="nav-inner">
+    <div class="brand" onclick="navigate('#home')" style="cursor:pointer">
+      <div class="logo" aria-hidden="true">RBC</div>
+      <div>
+        <h1 style="margin:0;font-size:16px">Rich Beyond Children</h1>
+        <div style="font-size:12px;color:var(--muted);margin-top:3px">Empower • Educate • Uplift</div>
+      </div>
+    </div>
+
+    <nav class="links" role="navigation" aria-label="Primary">
+      <a href="#home" data-link>Home</a>
+      <a href="#programs" data-link>Programs</a>
+      <a href="#startups" data-link>Startups</a>
+      <a href="#donate" data-link>Donate</a>
+      <a href="#about" data-link>About</a>
+      <a href="#contact" data-link>Contact</a>
+    </nav>
+
+    <div style="display:flex;gap:10px;align-items:center">
+      <button class="btn cta" id="donateTopBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="transform:translateY(-1px)"><path d="M12 21s-7-4.35-9-7.61C1.6 10.54 4.18 7 7.5 7c2.11 0 3.5 1.2 4.5 2.5 1-1.3 2.39-2.5 4.5-2.5 3.32 0 5.9 3.54 4.5 6.39C19 16.65 12 21 12 21z" fill="white"/></svg> Donate</button>
+      <button class="menu-toggle" aria-expanded="false" aria-label="Open menu" onclick="toggleMobile()">☰</button>
+    </div>
   </div>
+</header>
 
-  <div class="card">
-    <h3>Community / NGO Website</h3>
-    <p>Helped create small websites for volunteer groups and community-based NGOs to share their mission online.</p>
-  </div>
-</div>
+<main id="app">
+  <!-- SPA container -->
+  <div id="page-home" class="page" role="main" aria-labelledby="homeTitle">
+    <div class="container">
+      <!-- HERO -->
+      <section class="hero" aria-label="Hero">
+        <div class="hero-card reveal" data-reveal>
+          <span class="eyebrow">Nonprofit • 501(c) Demo</span>
+          <h2 class="hero-title" id="homeTitle">Build brighter futures — one child, one family, one startup at a time.</h2>
+          <p class="lead">Rich Beyond Children sponsors needy students, supports parents, and provides micro-startup grants especially for mothers — focused on dignity, local leadership, and measurable impact.</p>
 
-  </section>  <section id="contact" style="animation: fadeIn 2s ease-in-out;">
-    <h2>Contact Me</h2>
-    <p>If you'd like to reach out, feel free to send me a message anytime. I’m always open to new ideas and collaborations.</p><form style="display:flex;flex-direction:column;gap:15px;max-width:500px;margin:auto;background:rgba(61,0,102,0.3);padding:25px;border-radius:15px;border:1px solid #a64dff;backdrop-filter:blur(4px);">
-  <input type="text" placeholder="Your Name" required style="padding:12px;border-radius:8px;border:1px solid #3d0066;background:#0d0d0d;color:white;">
-  <input type="email" placeholder="Your Email" required style="padding:12px;border-radius:8px;border:1px solid #3d0066;background:#0d0d0d;color:white;">
-  <textarea placeholder="Your Message" required style="padding:12px;border-radius:8px;height:120px;border:1px solid #3d0066;background:#0d0d0d;color:white;"></textarea>
-  <button type="submit" style="padding:12px;border-radius:8px;background:#a64dff;border:none;color:white;font-weight:bold;cursor:pointer;transition:0.3s;">Send Message</button>
-</form>
+          <div class="hero-actions">
+            <button class="btn btn-primary" onclick="navigate('#donate')">Donate Now</button>
+            <button class="btn btn-ghost" onclick="navigate('#programs')">Explore Programs</button>
+            <button class="btn" onclick="openImpactModal()">Impact Snapshot</button>
+          </div>
 
-  </section>  <footer>
-    &copy; 2025 Soreti Muluneh | All Rights Reserved
-  </footer>
-</body>
-</html>      
+          <div class="stats" aria-hidden="true">
+            <div class="stat">
+              <div class="muted">Students Sponsored</div>
+              <b id="stat-students">0</b>
+            </div>
+            <div class="stat">
+              <div class="muted">Families Helped</div>
+              <b id="stat-families">0</b>
+            </div>
+            <div class="stat">
+              <div class="muted">Startups Funded</div>
+              <b id="stat-startups">0</b>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal" data-reveal>
+          <picture>
+            <source media="(max-width:600px)" srcset="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop">
+            <img alt="Children learning" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1400&auto=format&fit=crop" />
+          </picture>
+          <!-- overlay card -->
+          <div style="position:absolute;left:18px;bottom:18px;background:white;padding:12px;border-radius:12px;box-shadow:var(--card-shadow);min-width:220px;">
+            <div style="font-size:13px;color:var(--muted)">Monthly impact</div>
+            <div style="margin-top:8px;font-weight:700">28% average income increase</div>
+            <div style="margin-top:10px">
+              <div class="progress" aria-hidden="true"><i style="width:0%" id="impactBar"></i></div>
+              <div style="font-size:12px;color:var(--muted);margin-top:6px">Goal reached: <strong id="impactPercent">0%</strong></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROGRAMS -->
+      <section class="section" id="programs">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px">
+          <div>
+            <h3 style="margin:0">Programs</h3>
+            <p class="muted" style="margin-top:6px">Education • Parents support • Micro-startups • Emergency aid</p>
+          </div>
+          <div>
+            <button class="btn" onclick="filterPrograms('all')">All</button>
+            <button class="btn" onclick="filterPrograms('education')">Education</button>
+            <button class="btn" onclick="filterPrograms('economic')">Economic</button>
+          </div>
+        </div>
+
+        <div class="grid-3" id="programList">
+          <article class="card reveal" data-category="education" data-reveal>
+            <div style="display:flex;gap:12px;align-items:center">
+              <div class="icon-wrap">🎓</div>
+              <div>
+                <h4 style="margin:0">Sponsor a Student</h4>
+                <p class="muted" style="margin-top:8px">Full and partial scholarships, mentoring, school supplies.</p>
+              </div>
+            </div>
+            <div style="margin-top:14px;display:flex;gap:8px">
+              <button class="btn btn-primary" onclick="openModal('sponsor')">Sponsor</button>
+              <button class="btn" onclick="navigate('#contact')">Partner</button>
+            </div>
+          </article>
+
+          <article class="card reveal" data-category="economic" data-reveal>
+            <div style="display:flex;gap:12px;align-items:center">
+              <div class="icon-wrap">🤝</div>
+              <div>
+                <h4 style="margin:0">Parents Support</h4>
+                <p class="muted" style="margin-top:8px">Skills training, counseling, and small grants for caregivers.</p>
+              </div>
+            </div>
+            <div style="margin-top:14px;display:flex;gap:8px">
+              <button class="btn btn-ghost" onclick="openModal('parents')">See details</button>
+              <button class="btn" onclick="navigate('#contact')">Volunteer</button>
+            </div>
+          </article>
+
+          <article class="card reveal" data-category="economic" data-reveal>
+            <div style="display:flex;gap:12px;align-items:center">
+              <div class="icon-wrap">🧵</div>
+              <div>
+                <h4 style="margin:0">Mother Startups</h4>
+                <p class="muted" style="margin-top:8px">Micro-loans, business training, market linkages for women entrepreneurs.</p>
+              </div>
+            </div>
+            <div style="margin-top:14px;display:flex;gap:8px">
+              <button class="btn btn-primary" onclick="openModal('startups')">Apply</button>
+              <button class="btn" onclick="navigate('#startups')">Success stories</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- STARTUPS CAROUSEL -->
+      <section class="section" id="startups">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px">
+          <div>
+            <h3 style="margin:0">Startup Grants & Success Stories</h3>
+            <p class="muted" style="margin-top:6px">Small grants that created real income for families.</p>
+          </div>
+          <div class="pill">Apply for a micro-grant</div>
+        </div>
+
+        <div class="carousel reveal" data-reveal>
+          <div class="slides" id="slides">
+            <div class="slide card">
+              <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=800&auto=format&fit=crop" alt="Tailoring">
+              <div>
+                <h4 style="margin:0">Mama Fikir - Tailoring</h4>
+                <p class="muted" style="margin-top:8px">Funded ₵1,200 — now supplies uniforms to 3 schools.</p>
+                <div style="margin-top:10px;display:flex;gap:8px">
+                  <button class="btn btn-primary">Support</button>
+                  <button class="btn">Story</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="slide card">
+              <img src="https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?q=80&w=800&auto=format&fit=crop" alt="Gardening">
+              <div>
+                <h4 style="margin:0">Green Roots - Urban Gardening</h4>
+                <p class="muted" style="margin-top:8px">₵900 grant — now feeds 15 local families and sells excess produce.</p>
+                <div style="margin-top:10px;display:flex;gap:8px">
+                  <button class="btn btn-primary">Support</button>
+                  <button class="btn">Story</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="slide card">
+              <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop" alt="Bakery">
+              <div>
+                <h4 style="margin:0">New Dawn - Bakery</h4>
+                <p class="muted" style="margin-top:8px">₵1,500 grant — became supplier to 5 local shops.</p>
+                <div style="margin-top:10px;display:flex;gap:8px">
+                  <button class="btn btn-primary">Support</button>
+                  <button class="btn">Story</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-controls">
+            <button class="btn" aria-label="Previous slide" onclick="slide(-1)">◀</button>
+            <button class="btn" aria-label="Next slide" onclick="slide(1)">▶</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- IMPACT & COUNTERS -->
+      <section class="section">
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <div style="max-width:560px">
+            <h3 style="margin:0">Our measurable impact</h3>
+            <p class="muted" style="margin-top:8px">We track outcomes, not just outputs. Read stories and open data on request.</p>
+
+            <div style="margin-top:18px" class="counters">
+              <div class="counter reveal" data-reveal>
+                <div class="muted">Scholarships</div>
+                <b id="counter1">0</b>
+              </div>
+              <div class="counter reveal" data-reveal>
+                <div class="muted">Families with increased income</div>
+                <b id="counter2">0</b>
+              </div>
+              <div class="counter reveal" data-reveal>
+                <div class="muted">Active volunteers</div>
+                <b id="counter3">0</b>
+              </div>
+            </div>
+          </div>
+
+          <div style="width:420px">
+            <div class="card">
+              <h4 style="margin:0">How donations are used</h4>
+              <div style="margin-top:10px;font-size:14px" class="muted">
+                <div style="display:flex;justify-content:space-between"><span>Scholarships</span><span>60%</span></div>
+                <div class="progress" style="margin-top:8px"><i style="width:60%"></i></div>
+
+                <div style="display:flex;justify-content:space-between;margin-top:12px"><span>Startup grants</span><span>25%</span></div>
+                <div class="progress" style="margin-top:8px"><i style="width:25%"></i></div>
+
+                <div style="display:flex;justify-content:space-between;margin-top:12px"><span>Family support</span><span>10%</span></div>
+                <div class="progress" style="margin-top:8px"><i style="width:10%"></i></div>
+
+                <div style="display:flex;justify-content:space-between;margin-top:12px"><span>Admin & outreach</span><span>5%</span></div>
+                <div class="progress" style="margin-top:8px"><i style="width:5%"></i></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DONATE SECTION -->
+      <section class="section" id="donate">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px">
+          <div>
+            <h3 style="margin:0">Donate — power a future</h3>
+            <p class="muted" style="margin-top:6px">Secure donations fund scholarships and micro-loans. Demo payment below.</p>
+          </div>
+          <div class="pill">Secure • Transparent • Tax receipt (demo)</div>
+        </div>
+
+        <div class="card" style="display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap">
+          <div style="flex:1;min-width:320px">
+            <label class="muted">Choose amount</label>
+            <div style="display:flex;gap:8px;margin-top:8px">
+              <button class="btn" onclick="setAmount(10)">$10</button>
+              <button class="btn" onclick="setAmount(25)">$25</button>
+              <button class="btn btn-primary" onclick="setAmount(50)">$50</button>
+              <button class="btn" onclick="setAmount(100)">$100</button>
+            </div>
+
+            <div style="margin-top:12px">
+              <input id="donateAmount" type="number" value="50" min="1" />
+            </div>
+
+            <div style="margin-top:12px">
+              <label class="muted">Give as</label>
+              <div style="display:flex;gap:8px;margin-top:8px">
+                <button class="btn btn-primary" id="oneTimeBtn">One-time</button>
+                <button class="btn" id="monthlyBtn">Monthly</button>
+              </div>
+            </div>
+
+         
