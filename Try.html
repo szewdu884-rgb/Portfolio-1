@@ -1,443 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Reaching Beyond Words Charity Organization</title>
 <style>
-:root{--bg:#e9f4ff;--deep:#042e70;--brand:#0b63c6;--accent:#0ea5e9;--muted:#506070;--glass:rgba(255,255,255,0.9);--card-shadow:0 18px 50px rgba(3,37,92,.08)}
-*{box-sizing:border-box}
-html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:linear-gradient(180deg,var(--bg),#f6fbff);color:#06263f;-webkit-font-smoothing:antialiased}
-a{color:inherit}
-header{position:fixed;inset:0 0 auto 0;height:72px;display:flex;align-items:center;justify-content:space-between;padding:10px 18px;background:linear-gradient(90deg,var(--deep),var(--brand));color:#fff;z-index:1100;box-shadow:0 10px 30px rgba(2,20,70,.14)}
-.logo{display:flex;align-items:center;gap:12px;cursor:pointer}
-.logo-mark{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#7c5cff);display:grid;place-items:center;color:#fff;font-weight:800}
-.logo-text{font-weight:800;font-size:16px}
-.nav{display:flex;gap:12px;align-items:center}
-.nav a{color:rgba(255,255,255,.95);text-decoration:none;padding:8px 10px;border-radius:10px;font-weight:600;transition:transform .18s,background .18s}
-.nav a:hover{transform:translateY(-3px);background:rgba(255,255,255,.06)}
-.hamburger{display:none;background:transparent;border:0;color:#fff;font-size:24px;cursor:pointer}
-.cta{background:#fff;color:var(--brand);padding:8px 12px;border-radius:12px;font-weight:800;border:none;cursor:pointer;box-shadow:0 8px 30px rgba(14,165,233,.12)}
-.container{max-width:1100px;margin:96px auto 40px;padding:0 18px}
-.hero{display:grid;grid-template-columns:1fr 480px;gap:28px;align-items:center;padding:56px;border-radius:18px;background:radial-gradient(600px 200px at 10% 10%, rgba(255,255,255,.03), transparent),linear-gradient(135deg,var(--brand),var(--deep));color:#fff;overflow:hidden}
-.hero h1{font-size:36px;margin:0 0 8px;line-height:1.02;font-weight:900}
-.hero p{margin:0;color:rgba(255,255,255,.92);max-width:54ch}
-.hero-actions{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
-.btn{padding:12px 16px;border-radius:12px;border:0;cursor:pointer;font-weight:800}
-.btn-solid{background:#fff;color:var(--deep)}
-.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,.12);color:#fff}
-.hero-visual{border-radius:18px;overflow:hidden;box-shadow:0 18px 50px rgba(2,20,70,.12);height:340px;position:relative}
-.hero-visual img{width:100%;height:100%;object-fit:cover;display:block}
-.impact-card{position:absolute;left:16px;bottom:16px;background:#fff;padding:12px;border-radius:12px;color:var(--deep);box-shadow:0 12px 30px rgba(3,37,92,.08)}
-.wave{height:120px;margin-top:-28px}
-.section{padding:64px 0}
-.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
-.title{font-size:22px;margin:0;color:var(--deep);font-weight:800}
-.muted{color:var(--muted)}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.card{background:linear-gradient(180deg,#fff,#f7fbff);padding:18px;border-radius:14px;box-shadow:var(--card-shadow);transition:transform .36s,box-shadow .36s;backface-visibility:hidden}
-.card:hover{transform:translateY(-8px) rotateX(0.01deg);box-shadow:0 28px 70px rgba(2,20,70,.12)}
-.card h3{margin:0 0 8px;color:var(--brand)}
-.icon{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,rgba(11,99,198,.08),rgba(14,165,233,.06));display:grid;place-items:center;font-size:20px}
-.carousel{position:relative;border-radius:12px;overflow:hidden}
-.slides{display:flex;transition:transform .6s cubic-bezier(.2,.9,.25,1)}
-.slide{min-width:100%;display:flex;gap:18px;align-items:center;padding:18px}
-.slide img{width:240px;height:150px;object-fit:cover;border-radius:10px;flex-shrink:0}
-.carousel-controls{display:flex;gap:8px;justify-content:flex-end;margin-top:10px}
-.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-.gallery img{width:100%;height:130px;object-fit:cover;border-radius:8px;cursor:pointer;transition:transform .18s}
-.gallery img:hover{transform:scale(1.04)}
-.team{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.person{background:linear-gradient(180deg,#fff,#fbfdff);padding:12px;border-radius:12px;box-shadow:var(--card-shadow);text-align:center}
-.donate-fab{position:fixed;right:18px;bottom:18px;background:linear-gradient(135deg,var(--accent),#7c5cff);color:#fff;padding:14px 18px;border-radius:999px;font-weight:800;border:none;cursor:pointer;box-shadow:0 18px 50px rgba(3,37,92,.18);z-index:1200}
-.donate-modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:1201}
-.modal-back{position:absolute;inset:0;background:rgba(2,8,23,.6)}
-.modal-card{position:relative;background:#fff;padding:18px;border-radius:12px;max-width:720px;z-index:1202;box-shadow:var(--card-shadow)}
-.input,textarea,select{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(6,12,20,.06);margin-top:8px}
-.counter-row{display:flex;gap:12px;flex-wrap:wrap}
-.counter{background:linear-gradient(180deg,#fff,#f7fbff);padding:14px;border-radius:12px;text-align:center;flex:1;min-width:140px}
-.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
-.reveal.show{opacity:1;transform:none}
-footer{padding:20px;text-align:center;color:#fff;background:linear-gradient(90deg,#06357a,#0b63c6);margin-top:30px;border-top-left-radius:40px;border-top-right-radius:40px}
-@media(max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}.team{grid-template-columns:repeat(2,1fr)}.hero{grid-template-columns:1fr;row-gap:18px}.gallery{grid-template-columns:repeat(3,1fr)}.nav{display:none}.hamburger{display:block}}
-@media(max-width:620px){.grid{grid-template-columns:1fr}.gallery{grid-template-columns:repeat(2,1fr)}.team{grid-template-columns:1fr}.hero h1{font-size:26px}}
+:root{--blue:#0e5cd6;--white:#f5f9ff;--dark:#021827;--muted:#64748b;--shadow:0 4px 18px rgba(0,0,0,.12);}
+*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
+body{background:var(--white);color:var(--dark);line-height:1.5;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+header{position:fixed;width:100%;top:0;left:0;background:var(--white);padding:14px 24px;box-shadow:var(--shadow);z-index:1000;display:flex;justify-content:space-between;align-items:center;transition:0.3s}
+header .logo{font-weight:700;font-size:20px;color:var(--blue)}
+header nav{display:flex;gap:18px}
+header nav a{padding:6px 12px;border-radius:6px;transition:0.2s}
+header nav a:hover{background:var(--blue);color:white}
+.menu-toggle{display:none;cursor:pointer;font-size:24px}
+section{padding:140px 24px 60px 24px;opacity:0;transform:translateY(40px);transition:0.6s ease-in-out;position:relative;min-height:calc(100vh - 80px);}
+section.activePage{opacity:1;transform:translateY(0)}
+section h2{color:var(--blue);font-size:32px;margin-bottom:18px;text-align:center}
+section p{text-align:center;margin-bottom:20px;color:var(--muted)}
+.hero{background:linear-gradient(135deg, #0e5cd6, #00aaff);color:white;text-align:center;padding:180px 20px;clip-path:polygon(0 0,100% 0,100% 85%,0 100%)}
+.hero h1{font-size:46px;margin-bottom:18px;animation:fadeInDown 1s ease forwards}
+.hero p{font-size:20px;margin-bottom:24px;animation:fadeInUp 1s ease forwards}
+.cta{padding:14px 28px;border:none;border-radius:50px;background:var(--white);color:var(--blue);font-weight:700;cursor:pointer;transition:0.3s}
+.cta:hover{background:var(--blue);color:white}
+@keyframes fadeInDown{0%{opacity:0;transform:translateY(-30px)}100%{opacity:1;transform:translateY(0)}}
+@keyframes fadeInUp{0%{opacity:0;transform:translateY(30px)}100%{opacity:1;transform:translateY(0)}}
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:28px;max-width:1200px;margin:0 auto}
+.service-card{background:white;padding:22px;border-radius:12px;box-shadow:var(--shadow);transition:0.4s;position:relative}
+.service-card:hover{transform:translateY(-6px)}
+.service-card h3{color:var(--blue);margin-bottom:12px}
+.service-card p{color:var(--muted);font-size:15px}
+.stats{display:flex;flex-wrap:wrap;justify-content:center;gap:28px;margin-top:40px}
+.stat{background:var(--blue);color:white;padding:24px 32px;border-radius:12px;text-align:center;flex:1;min-width:180px;transition:0.3s}
+.stat h3{font-size:28px;margin-bottom:6px}
+.stat p{font-size:14px}
+#contact form{max-width:500px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+#contact input,#contact textarea{padding:12px;border-radius:8px;border:1px solid #ddd;font-size:14px;resize:none}
+#contact button{margin-top:12px;padding:14px;border:none;border-radius:50px;background:var(--blue);color:white;font-weight:700;cursor:pointer}
+footer{background:var(--dark);color:white;padding:20px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;font-size:14px}
+footer .muted{color:var(--muted)}
+.donate-fab{position:fixed;bottom:20px;right:20px;background:var(--blue);color:white;padding:14px 22px;border-radius:50px;font-weight:700;box-shadow:0 4px 10px rgba(0,0,0,.25);cursor:pointer;z-index:9999}
+@media(max-width:768px){header nav{display:none;flex-direction:column;gap:12px;width:100%;background:var(--white);position:absolute;top:60px;left:0;padding:14px 0;border-top:1px solid #eee}.menu-toggle{display:block}}
+.reveal{opacity:0;transform:translateY(40px);transition:0.6s ease-in-out}
+.reveal.show{opacity:1;transform:translateY(0)}
 </style>
 </head>
 <body>
 <header>
-<div class="logo" onclick="scrollToTop()">
-<div class="logo-mark">RBW</div>
-<div class="logo-text">Reaching Beyond Words</div>
-</div>
-<nav class="nav" role="navigation" aria-label="main">
-<a href="#home" onclick="goto(event,'home')">Home</a>
-<a href="#programs" onclick="goto(event,'programs')">Programs</a>
-<a href="#startups" onclick="goto(event,'startups')">Startups</a>
-<a href="#donate" onclick="goto(event,'donate')">Donate</a>
-<a href="#impact" onclick="goto(event,'impact')">Impact</a>
-<a href="#gallery" onclick="goto(event,'gallery')">Gallery</a>
-<a href="#team" onclick="goto(event,'team')">Team</a>
-<a href="#events" onclick="goto(event,'events')">Events</a>
-<a href="#volunteer" onclick="goto(event,'volunteer')">Volunteer</a>
-<a href="#contact" onclick="goto(event,'contact')">Contact</a>
-<button class="cta" onclick="goto(null,'donate')">Support</button>
+<div class="logo">Reaching Beyond Words</div>
+<div class="menu-toggle" onclick="toggleMobile()">☰</div>
+<nav>
+<a href="#home" onclick="showPage('home')">Home</a>
+<a href="#about" onclick="showPage('about')">About</a>
+<a href="#programs" onclick="showPage('programs')">Programs</a>
+<a href="#donate" onclick="showPage('donate')">Donate</a>
+<a href="#contact" onclick="showPage('contact')">Contact</a>
 </nav>
-<button class="hamburger" onclick="toggleMobile()">☰</button>
 </header>
-<div class="container" id="content">
-<section id="home" class="hero reveal show" aria-labelledby="homeTitle">
-<div>
-<span class="pill" style="background:rgba(255,255,255,.12);color:#fff;padding:6px 10px;border-radius:999px;font-weight:800">Nonprofit • Community</span>
-<h1 id="homeTitle">We fund children’s school needs and help parents start businesses</h1>
-<p>Reaching Beyond Words Charity Organization provides school fees, meals, supplies and startup capital—focused on mothers and vulnerable families.</p>
-<div class="hero-actions">
-<button class="btn btn-solid" onclick="goto(null,'donate')">Donate</button>
-<button class="btn btn-ghost" onclick="goto(null,'programs')">Programs</button>
-<button class="btn" onclick="openImpact()">Impact</button>
-</div>
-</div>
-<div class="hero-visual" aria-hidden="true">
-<img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1400&auto=format&fit=crop" alt="children">
-<div class="impact-card">
-<div style="font-size:13px;color:#58708f">Monthly reach</div>
-<div style="font-weight:800">+2,400 beneficiaries</div>
-<div style="margin-top:8px">
-<div style="height:10px;background:#eef6ff;border-radius:999px;overflow:hidden">
-<i id="heroBar" style="display:block;height:100%;width:0;background:var(--brand);transition:width 1s ease"></i>
-</div>
-</div>
-</div>
-</div>
+
+<section id="home" class="hero activePage">
+<h1 class="reveal">Empowering Children & Families</h1>
+<p class="reveal">Providing education support for children and helping parents start their own businesses.</p>
+<button class="cta" onclick="showPage('donate')">Donate Now</button>
 </section>
-<svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none" style="display:block">
-<path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="#fff"></path>
-</svg>
-<section id="programs" class="section reveal" aria-labelledby="programsTitle">
-<div class="section-head">
-<h3 id="programsTitle" class="title">Programs</h3>
-<div class="muted">Scholarships • Startup grants • Meals • Training</div>
-</div>
-<div class="grid" id="programGrid">
-<div class="card reveal">
-<div style="display:flex;gap:12px;align-items:center">
-<div class="icon">🎒</div>
-<div>
-<h3>Student Sponsorship</h3>
-<p class="muted">Tuition, books and mentorship for needy children.</p>
-</div>
-</div>
-</div>
-<div class="card reveal">
-<div style="display:flex;gap:12px;align-items:center">
-<div class="icon">🍲</div>
-<div>
-<h3>Feeding Programs</h3>
-<p class="muted">Nutritious school meals in partner schools.</p>
-</div>
-</div>
-</div>
-<div class="card reveal">
-<div style="display:flex;gap:12px;align-items:center">
-<div class="icon">🧵</div>
-<div>
-<h3>Mother Startups</h3>
-<p class="muted">Micro-grants and training to start small businesses.</p>
-</div>
-</div>
-</div>
-<div class="card reveal">
-<div style="display:flex;gap:12px;align-items:center">
-<div class="icon">🏫</div>
-<div>
-<h3>School Kits</h3>
-<p class="muted">Uniforms, shoes and stationery for each child.</p>
-</div>
-</div>
-</div>
-<div class="card reveal">
-<div style="display:flex;gap:12px;align-items:center">
-<div class="icon">🩺</div>
-<div>
-<h3>Health Support</h3>
-<p class="muted">Medical aid for urgent family needs.</p>
-</div>
-</div>
-</div>
-<div class="card reveal">
-<div style="display:flex;gap:12px;align-items:center">
-<div class="icon">📈</div>
-<div>
-<h3>Skills & Mentoring</h3>
-<p class="muted">Business skills, savings groups and coaching.</p>
-</div>
-</div>
-</div>
-</div>
+
+<section id="about" class="reveal">
+<h2>About Us</h2>
+<p>We help children fund their education and support parents to start small businesses for a sustainable future.</p>
 </section>
-<section id="startups" class="section reveal" aria-labelledby="startupsTitle">
-<div class="section-head">
-<h3 id="startupsTitle" class="title">Startups & Success Stories</h3>
-<div class="muted">Small grants with big impact</div>
+
+<section id="programs" class="reveal">
+<h2>Our Programs</h2>
+<div class="services">
+<div class="service-card reveal"><h3>Child Education</h3><p>Funds for school fees, books, and essentials to ensure every child has access to education.</p></div>
+<div class="service-card reveal"><h3>Parent Support</h3><p>Helping parents start small businesses or projects for financial independence.</p></div>
+<div class="service-card reveal"><h3>Nutrition Aid</h3><p>Providing meals and nutrition support to underprivileged children.</p></div>
+<div class="service-card reveal"><h3>Community Events</h3><p>Organizing workshops, health checkups, and empowerment programs for families.</p></div>
 </div>
-<div class="carousel">
-<div class="slides" id="slides">
-<div class="slide card">
-<img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=800&auto=format&fit=crop" alt="tailor">
-<div>
-<h4>Mama Fikir — Tailoring</h4>
-<p class="muted">Seed support $1,200; now employs 3 women and supplies schools.</p>
-<div style="margin-top:10px">
-<button class="cta-ghost" onclick="openModal('sponsor')">Support</button>
-</div>
-</div>
-</div>
-<div class="slide card">
-<img src="https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?q=80&w=800&auto=format&fit=crop" alt="garden">
-<div>
-<h4>Green Roots — Gardening</h4>
-<p class="muted">$900 grant; provides food for 15 households.</p>
-<div style="margin-top:10px">
-<button class="cta-ghost" onclick="openModal('sponsor')">Support</button>
-</div>
-</div>
-</div>
-<div class="slide card">
-<img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop" alt="bakery">
-<div>
-<h4>New Dawn — Bakery</h4>
-<p class="muted">$1,500 seed; now supplies five local shops.</p>
-<div style="margin-top:10px">
-<button class="cta-ghost" onclick="openModal('sponsor')">Support</button>
-</div>
-</div>
-</div>
-</div>
-<div class="carousel-controls">
-<button class="btn" onclick="slide(-1)">◀</button>
-<button class="btn" onclick="slide(1)">▶</button>
-</div>
-</div>
-</section>
-<svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none" style="display:block;transform:rotate(180deg)">
-<path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="#fff"></path>
-</svg>
-<section id="donate" class="section reveal" aria-labelledby="donateTitle">
-<div class="section-head">
-<h3 id="donateTitle" class="title">Donate — Transform a Life</h3>
-<div class="muted">Secure demo form • Ready to integrate Stripe/PayPal</div>
-</div>
-<div class="donate-box card">
-<form id="donForm" onsubmit="processDonate(event)">
-<div style="display:flex;gap:10px;flex-wrap:wrap">
-<input id="donName" class="input" name="name" placeholder="Full name" required>
-<input id="donEmail" class="input" name="email" type="email" placeholder="Email" required>
-</div>
-<div style="display:flex;gap:8px;margin-top:10px">
-<button type="button" class="cta-ghost" onclick="setAmt(10)">$10</button>
-<button type="button" class="cta-ghost" onclick="setAmt(25)">$25</button>
-<button type="button" class="cta-ghost" onclick="setAmt(50)">$50</button>
-<button type="button" class="cta-ghost" onclick="setAmt(100)">$100</button>
-</div>
-<input id="donAmount" class="input" name="amount" type="number" min="1" value="50">
-<select id="donPurpose" class="input">
-<option value="scholarship">Scholarship</option>
-<option value="startup">Startup grant</option>
-<option value="meals">Feeding</option>
-</select>
-<textarea id="donMessage" class="input" rows="3" placeholder="Message (optional)"></textarea>
-<div style="display:flex;gap:12px;align-items:center;margin-top:12px">
-<button class="cta" type="submit">Proceed (Demo)</button>
-<div class="muted">Demo receipt will be shown (no real payment)</div>
-</div>
-</form>
+<div class="stats">
+<div class="stat"><h3 id="childCount">0</h3><p>Children Supported</p></div>
+<div class="stat"><h3 id="motherCount">0</h3><p>Mothers Supported</p></div>
+<div class="stat"><h3 id="mealCount">0</h3><p>Meals Provided</p></div>
 </div>
 </section>
 
-<section id="impact" class="section reveal" aria-labelledby="impactTitle">
-<div class="section-head">
-<h3 id="impactTitle" class="title">Impact</h3>
-<div class="muted">Measured outcomes from our programs</div>
-</div>
-<div class="counter-row">
-<div class="counter reveal">
-<div class="muted">Students Sponsored</div>
-<div style="font-size:22px;font-weight:800" id="num1">0</div>
-</div>
-<div class="counter reveal">
-<div class="muted">Mothers Funded</div>
-<div style="font-size:22px;font-weight:800" id="num2">0</div>
-</div>
-<div class="counter reveal">
-<div class="muted">Meals Served</div>
-<div style="font-size:22px;font-weight:800" id="num3">0</div>
-</div>
-</div>
-</section>
-<section id="gallery" class="section reveal" aria-labelledby="galleryTitle">
-<div class="section-head">
-<h3 id="galleryTitle" class="title">Gallery</h3>
-<div class="muted">Moments from the field</div>
-</div>
-<div class="gallery">
-<img src="https://images.unsplash.com/photo-1523475496153-3f6a8b2f0b17?q=80&w=800&auto=format&fit=crop" alt="g1" onclick="openLight(this.src)">
-<img src="https://images.unsplash.com/photo-1529453507859-941d0f8fd0a6?q=80&w=800&auto=format&fit=crop" alt="g2" onclick="openLight(this.src)">
-<img src="https://images.unsplash.com/photo-1535434154238-4bbd78f2a3c6?q=80&w=800&auto=format&fit=crop" alt="g3" onclick="openLight(this.src)">
-<img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop" alt="g4" onclick="openLight(this.src)">
-<img src="https://images.unsplash.com/photo-1503342452485-86b7a4d2f8d9?q=80&w=800&auto=format&fit=crop" alt="g5" onclick="openLight(this.src)">
-<img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?q=80&w=800&auto=format&fit=crop" alt="g6" onclick="openLight(this.src)">
-<img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=800&auto=format&fit=crop" alt="g7" onclick="openLight(this.src)">
-<img src="https://images.unsplash.com/photo-1516910916608-9e9b2b4b8b3f?q=80&w=800&auto=format&fit=crop" alt="g8" onclick="openLight(this.src)">
-</div>
-</section>
-<section id="team" class="section reveal" aria-labelledby="teamTitle">
-<div class="section-head">
-<h3 id="teamTitle" class="title">Team</h3>
-<div class="muted">Local leadership & volunteers</div>
-</div>
-<div class="team">
-<div class="person reveal">
-<img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop" alt="team1" style="width:84px;height:84px;border-radius:999px;object-fit:cover;display:block;margin:0 auto">
-<h4 style="margin:10px 0 2px">Alem</h4>
-<div class="muted">Executive Director</div>
-</div>
-<div class="person reveal">
-<img src="https://images.unsplash.com/photo-1545996124-5b01bb14d4b8?q=80&w=400&auto=format&fit=crop" alt="team2" style="width:84px;height:84px;border-radius:999px;object-fit:cover;display:block;margin:0 auto">
-<h4 style="margin:10px 0 2px">Selam</h4>
-<div class="muted">Programs Lead</div>
-</div>
-<div class="person reveal">
-<img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=400&auto=format&fit=crop" alt="team3" style="width:84px;height:84px;border-radius:999px;object-fit:cover;display:block;margin:0 auto">
-<h4 style="margin:10px 0 2px">Mariam</h4>
-<div class="muted">Finance</div>
-</div>
-<div class="person reveal">
-<img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=400&auto=format&fit=crop" alt="team4" style="width:84px;height:84px;border-radius:999px;object-fit:cover;display:block;margin:0 auto">
-<h4 style="margin:10px 0 2px">Daniel</h4>
-<div class="muted">Outreach</div>
-</div>
-</div>
-</section>
-<section id="events" class="section reveal" aria-labelledby="eventsTitle">
-<div class="section-head">
-<h3 id="eventsTitle" class="title">Events</h3>
-<div class="muted">Community fairs & trainings</div>
-</div>
-<div style="display:grid;gap:12px">
-<div class="card reveal">
-<div style="display:flex;justify-content:space-between;align-items:center">
-<div>
-<h4 style="margin:0">Community Business Fair</h4>
-<div class="muted">Dec 14, 2025 • Addis Ababa</div>
-</div>
-<div>
-<button class="cta-ghost" onclick="openModal('event','Community Business Fair')">Register</button>
-</div>
-</div>
-</div>
-<div class="card reveal">
-<div style="display:flex;justify-content:space-between;align-items:center">
-<div>
-<h4 style="margin:0">Volunteer Training</h4>
-<div class="muted">Jan 8, 2026 • Online</div>
-</div>
-<div>
-<button class="cta-ghost" onclick="openModal('event','Volunteer Training')">Register</button>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="volunteer" class="section reveal" aria-labelledby="volTitle">
-<div class="section-head">
-<h3 id="volTitle" class="title">Volunteer</h3>
-<div class="muted">Give your time — make a long-term difference</div>
-</div>
-<div class="card" style="max-width:760px">
-<form id="volForm" onsubmit="submitVolunteer(event)">
-<div style="display:flex;gap:12px;flex-wrap:wrap">
-<input name="name" placeholder="Full name" required style="flex:1;min-width:220px" class="input">
-<input name="email" type="email" placeholder="Email" required style="flex:1;min-width:220px" class="input">
-</div>
-<div style="margin-top:12px">
-<select name="area" class="input">
-<option value="">Choose area of interest</option>
-<option>Teaching / Mentoring</option>
-<option>Community outreach</option>
-<option>Fundraising</option>
-<option>Admin & logistics</option>
-</select>
-</div>
-<div style="margin-top:12px">
-<textarea name="notes" placeholder="Tell us a bit about your skills" rows="4" class="input"></textarea>
-</div>
-<div style="margin-top:12px;display:flex;gap:10px;align-items:center">
-<button class="cta" type="submit">Sign up</button>
-<div class="muted">We will contact you within 7 days (demo)</div>
-</div>
+<section id="donate" class="reveal">
+<h2>Donate</h2>
+<p>Your donation helps children stay in school and empowers parents to create sustainable income.</p>
+<form onsubmit="processDonate(event)">
+<input type="text" id="donName" placeholder="Your Name" required>
+<input type="email" id="donEmail" placeholder="Email" required>
+<input type="number" id="donAmount" placeholder="Amount $" required>
+<button type="submit">Donate</button>
+<div id="donResult" style="margin-top:12px;color:var(--muted)"></div>
 </form>
-</div>
 </section>
-<section id="contact" class="section reveal" aria-labelledby="contactTitle">
-<div class="section-head">
-<h3 id="contactTitle" class="title">Contact & Partnerships</h3>
-<div class="muted">Questions? Partnership ideas? Volunteer with us.</div>
-</div>
-<div class="card" style="max-width:720px">
-<p style="margin:0">Email: support@reachingbeyond.org</p>
-<p style="margin:6px 0 0">Phone: +251 900 000 000</p>
-<p class="muted" style="margin-top:8px">Address: Addis Ababa, Ethiopia</p>
-</div>
+
+<section id="contact" class="reveal">
+<h2>Contact Us</h2>
+<p>Reach out for partnership, volunteering, or inquiries.</p>
+<form onsubmit="submitVolunteer(event)">
+<input type="text" placeholder="Name" required>
+<input type="email" placeholder="Email" required>
+<textarea rows="4" placeholder="Message"></textarea>
+<button type="submit">Send Message</button>
+</form>
 </section>
+
 <footer>
-<div style="max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:12px">
+<div style="max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;padding:12px 20px">
 <div>
 <strong>Reaching Beyond Words Charity Organization</strong>
-<div class="muted" style="font-size:13px">© <span id="yr"></span></div>
+<div class="muted" id="yr"></div>
 </div>
 <div class="muted">Privacy • Terms</div>
 </div>
 </footer>
-<button class="donate-fab" onclick="goto(null,'donate')" aria-label="Donate">Donate</button>
-<div class="donate-modal" id="donModal">
-<div class="modal-back" onclick="closeDon()"></div>
-<div class="modal-card" role="dialog" aria-modal="true" id="donCard">
-<div style="display:flex;justify-content:space-between;align-items:center">
-<h4 style="margin:0">Donate (Demo)</h4>
-<button onclick="closeDon()" style="background:transparent;border:0;font-size:18px;cursor:pointer">✕</button>
-</div>
-<div id="donResult" style="margin-top:12px;color:var(--muted)"></div>
-</div>
-</div>
-<div id="modal" style="display:none;position:fixed;inset:0;z-index:1300;align-items:center;justify-content:center">
-<div style="position:absolute;inset:0;background:rgba(2,8,23,.6)" onclick="closeModal()"></div>
-<div style="background:#fff;padding:18px;border-radius:12px;max-width:720px;z-index:1310;box-shadow:0 18px 50px rgba(3,37,92,.08)">
-<div style="display:flex;justify-content:space-between;align-items:center">
-<h4 id="modalTitle" style="margin:0">Modal</h4>
-<button onclick="closeModal()" style="background:transparent;border:0;font-size:18px;cursor:pointer">✕</button>
-</div>
-<div id="modalBody" style="margin-top:12px;color:var(--muted)"></div>
-</div>
-</div>
-<div id="lightbox" style="display:none;position:fixed;inset:0;z-index:1400;align-items:center;justify-content:center">
-<div style="position:absolute;inset:0;background:rgba(2,8,23,.8)" onclick="closeLight()"></div>
-<img id="lightImg" src="" style="max-width:92%;max-height:92%;border-radius:8px;box-shadow:0 20px 60px rgba(2,6,23,.6)">
-</div>
+
+<button class="donate-fab" onclick="showPage('donate')">Donate</button>
+
 <script>
-document.getElementById('yr').textContent = new Date().getFullYear();
-function scrollToTop(){window.scrollTo({top:0,behavior:'smooth'})}
-function goto(e,id){if(e) e.preventDefault();const el=document.getElementById(id);if(!el) return;el.scrollIntoView({behavior:'smooth',block:'start'});return false}
-function toggleMobile(){const n=document.querySelector('.nav');n.style.display = n.style.display === 'flex' ? 'none' : 'flex'}
-window.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('.reveal').forEach((r,i)=>setTimeout(()=>r.classList.add('show'),90*i));setTimeout(()=>{document.getElementById('heroBar').style.width='82%';},700)});
-const io = new IntersectionObserver((entries)=>{entries.forEach(ent=>{if(ent.isIntersecting){ent.target.classList.add('show');io.unobserve(ent.target)}}),{threshold:0.12}});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-let idx=0;const slides=document.getElementById('slides');function show(i){const total=slides.children.length;if(i<0)i=total-1;if(i>=total)i=0;idx=i;slides.style.transform='translateX('+(-i*100)+'%)'}function slide(dir){show(idx+dir)}setInterval(()=>show(idx+1),7000);show(0);
-function openLight(src){document.getElementById('lightImg').src=src;document.getElementById('lightbox').style.display='flex'}
-function closeLight(){document.getElementById('lightbox').style.display='none'}
-function openModal(kind,info){const t=document.getElementById('modalTitle');const b=document.getElementById('modalBody');if(kind==='sponsor'){t.textContent='Sponsor a child';b.innerHTML='<p class=\"muted\">Demo sponsorship. Fill details to simulate.</p><div style=\"margin-top:10px\"><input id=\"spName\" placeholder=\"Your name\" class=\"input\"><input id=\"spEmail\" placeholder=\"Email\" class=\"input\" style=\"margin-top:8px\"></div><div style=\"margin-top:10px\"><button class=\"cta\" onclick=\"alert(\\'Thank you (demo)\\');closeModal()\">Confirm</button></div>'}else if(kind==='event'){t.textContent='Register';b.innerHTML='<p class=\"muted\">Register for: <strong>'+info+'</strong></p><div style=\"margin-top:10px\"><input id=\"evnName\" placeholder=\"Name\" class=\"input\"><input id=\"evnEmail\" placeholder=\"Email\" class=\"input\" style=\"margin-top:8px\"></div><div style=\"margin-top:10px\"><button class=\"cta\" onclick=\"alert(\\'Registered (demo)\\');closeModal()\">Register</button></div>'}else{t.textContent=info||'Info';b.innerHTML='<div class=\"muted\">'+(info||'Details')+'</div>'}document.getElementById('modal').style.display='flex'}function closeModal(){document.getElementById('modal').style.display='none'}
-function openDon(){document.getElementById('donModal').style.display='flex'}function closeDon(){document.getElementById('donModal').style.display='none'}function setAmt(n){document.getElementById('donAmount').value=n}
-function processDonate(e){e.preventDefault();const n=document.getElementById('donName').value;const em=document.getElementById('donEmail').value;const a=document.getElementById('donAmount').value;if(!n||!em||!a){alert('Please complete the donation form');return}document.getElementById('donResult').innerHTML='<div class=\"muted\">Processing demo donation…</div>';setTimeout(()=>{document.getElementById('donResult').innerHTML='<div style=\"font-weight:800;margin-top:8px\">Thank you, demo donation of $'+a+' recorded.</div>';setTimeout(()=>document.getElementById('donResult').innerHTML+='<div style=\"margin-top:10px\"><button class=\"cta\" onclick=\"closeDon()\">Close</button></div>',400);},900)}
-function submitVolunteer(e){e.preventDefault();openModal('thanks','Thanks for signing up (demo)');setTimeout(closeModal,1600)}
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closeLight();closeDon()}})
+document.getElementById('yr').textContent=new Date().getFullYear();
+function showPage(id){document.querySelectorAll('section').forEach(s=>s.classList.remove('activePage'));document.getElementById(id).classList.add('activePage');window.scrollTo(0,0);document.querySelectorAll('.reveal').forEach(e=>{setTimeout(()=>e.classList.add('show'),200);});}
+function toggleMobile(){const n=document.querySelector('header nav');n.style.display=n.style.display==='flex'?'none':'flex';}
+function animateCounter(id,target){let c=0;const spd=20;let el=document.getElementById(id);let up=setInterval(()=>{if(c<target){c++;el.innerText=c}else{clearInterval(up);}},spd);}
+window.onload=()=>{animateCounter('childCount',1200);animateCounter('motherCount',350);animateCounter('mealCount',5000);}
+function processDonate(e){e.preventDefault();const n=document.getElementById('donName').value;const em=document.getElementById('donEmail').value;const a=document.getElementById('donAmount').value;if(!n||!em||!a){alert('Please complete the donation form');return;}document.getElementById('donResult').innerHTML='<div class="muted">Processing demo donation…</div>';setTimeout(()=>{document.getElementById('donResult').innerHTML='<div style="font-weight:800;margin-top:8px">Thank you, demo donation of $'+a+' recorded.</div>';},900);}
+function submitVolunteer(e){e.preventDefault();alert('Thanks for signing up (demo)');}
 </script>
 </body>
 </html>
